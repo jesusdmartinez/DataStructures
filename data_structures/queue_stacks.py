@@ -39,5 +39,3 @@ class Queue_Stacks:
             revert_temp = self.stack_two.pop()
             self.stack_one.push(revert_temp)
         return result
-
-
