@@ -1,6 +1,6 @@
 class Dictionary:
 
-    my_dict_length = 6
+    my_dict_length = 3
 
     def __init__(self):
         self.data = [None] * Dictionary.my_dict_length
@@ -8,7 +8,7 @@ class Dictionary:
 
     def set(self, key, value):
         """
-        Description  create a new entry.  if the key already exists it will be replaced
+        Description  create a new entry.  if the key already exists it will be replaced by the latest entry.
         Parameters:  'key' : 'value'
         """
         index = self.get_index(key)
@@ -31,8 +31,6 @@ class Dictionary:
             if x[0] == key:
                 return x[1]
 
-        # print(self.data[index])
-
 
     def contains(self, key):
         """
@@ -53,16 +51,38 @@ class Dictionary:
         """
         return hash(key) % Dictionary.my_dict_length
 
+
     def delete(self, key):
         """
-        Description delete a specified key pair in our list
-        Parameters: 'key' is the value to search for a delete
+        Description:  delete a specified key pair in our list
+        Parameters: 'key' is the value to search for and delete
         """
+        # index = self.get_index(key)
+        #
+        # for i in self.data[index] or []:
+        #     if i[0] == key:
+        #         self.data[index].remove(i)
+
         index = self.get_index(key)
 
         for i, x in enumerate(self.data[index] or []):
             if x[0] == key:
                 del self.data[index][i]
+
+    def increase_array(self):
+        """
+        copy list to somewhere
+        """
+        # for list in self.data:
+        temp_list = []
+
+        for list in self.data:
+            temp_list.append(list)
+
+        self.data = [None] * 100
+
+        for list in temp_list:
+            self.data.set(list[0], list[1])
 
 
     def print_list(self):
@@ -70,17 +90,8 @@ class Dictionary:
         """
         print(self.data)
 
-# my_dict = Dictionary()
-# my_dict.set("A", 15)
-# my_dict.set("B", 50)
-# my_dict.set("C", 105)
-# my_dict.set("D", 105)
-# my_dict.set("E", 105)
-# my_dict.set("F", 105)
-# my_dict.delete("A")
-# my_dict.delete("B")
-# my_dict.delete("C")
-# my_dict.delete("D")
-# my_dict.delete("E")
-# my_dict.delete("F")
+my_dict = Dictionary()
+my_dict.set("A", 15)
+my_dict.set("B", 100)
+my_dict.increase_array()
 # my_dict.print_list()
