@@ -10,7 +10,7 @@ class Queue:
          Parameter:  "item" identify the item to add
         """
         self._data.insert(0, item)
-            
+
     def dequeue(self):
         """
         Size:  O(1)
